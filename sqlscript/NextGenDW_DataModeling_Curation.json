@@ -1,0 +1,17 @@
+{
+	"name": "NextGenDW_DataModeling_Curation",
+	"properties": {
+		"content": {
+			"query": "create database NextGenDW\n\nuse nextgendw\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "NextGenDW"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
