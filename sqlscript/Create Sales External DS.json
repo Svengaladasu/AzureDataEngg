@@ -1,0 +1,17 @@
+{
+	"name": "Create Sales External DS",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL DATA SOURCE EDS_salescustomer WITH\n(\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salescustomer'\n)\n\nCREATE EXTERNAL DATA SOURCE EDS_salesInvoice WITH\n(\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salesinvoice'\n)\n\nCREATE EXTERNAL DATA SOURCE EDS_salesOrders WITH\n(\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salesorders'\n)\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "azsynapsedb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
