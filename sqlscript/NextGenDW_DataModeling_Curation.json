@@ -2,7 +2,7 @@
 	"name": "NextGenDW_DataModeling_Curation",
 	"properties": {
 		"content": {
-			"query": "create database NextGenDW\n\nuse nextgendw\n\nCREATE TABLE [Customers](\n\t[CustomerID] [int] NOT NULL,\n\t[CustomerName] [nvarchar](100) NOT NULL,\t\n\t[PhoneNumber] [nvarchar](20) NOT NULL,\n\t[FaxNumber] [nvarchar](20) NOT NULL,\t\n\t[WebsiteURL] [nvarchar](256) NOT NULL,\n\t[DeliveryAddressLine1] [nvarchar](60) NOT NULL,\n\t[DeliveryAddressLine2] [nvarchar](60) NULL,\n\t[DeliveryPostalCode] [nvarchar](10) NOT NULL,\n\t[PostalAddressLine1] [nvarchar](60) NOT NULL,\n\t[PostalAddressLine2] [nvarchar](60) NULL,\n\t[PostalPostalCode] [nvarchar](10) NOT NULL\n) \nGO\n",
+			"query": "create database NextGenDW\n\nuse nextgendw\n\nCREATE EXTERNAL TABLE [Customers](\n\t[CustomerID] [int] NOT NULL,\n\t[CustomerName] [nvarchar](100) NOT NULL,\t\n\t[PhoneNumber] [nvarchar](20) NOT NULL,\n\t[FaxNumber] [nvarchar](20) NOT NULL,\t\n\t[WebsiteURL] [nvarchar](256) NOT NULL,\n\t[DeliveryAddressLine1] [nvarchar](60) NOT NULL,\n\t[DeliveryAddressLine2] [nvarchar](60) NULL,\n\t[DeliveryPostalCode] [nvarchar](10) NOT NULL,\n\t[PostalAddressLine1] [nvarchar](60) NOT NULL,\n\t[PostalAddressLine2] [nvarchar](60) NULL,\n\t[PostalPostalCode] [nvarchar](10) NOT NULL\n)\nWITH(\n\tLOCATION = 'https://web.azuresynapse.net/en-us/authoring/explore/linked/storageaccounts/azsynapse-ws-WorkspaceDefaultStorage-nxtgenstagingdl%2Fsalescustomer?relativePath=home&subFolderPath=&workspace=%2Fsubscriptions%2Fdb426612-8b27-469c-9d8f-e1dd556774e9%2FresourceGroups%2FAzureTraining%2Fproviders%2FMicrosoft.Synapse%2Fworkspaces%2Fazsynapse-ws',\n    DATA_SOURCE = EDS_salescustomer,  \n    FILE_FORMAT = DELIMITEDTEXT\n)\n",
 			"metadata": {
 				"language": "sql"
 			},
