@@ -2,7 +2,7 @@
 	"name": "NextGenDW_DataModeling_Curation",
 	"properties": {
 		"content": {
-			"query": "create database NextGenDW\n\nuse nextgendw\n\n",
+			"query": "create database NextGenDW\n\nuse nextgendw\n\n\n\n",
 			"metadata": {
 				"language": "sql"
 			},
