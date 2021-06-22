@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "\nCREATE EXTERNAL DATA SOURCE EDS_salescustomer WITH\n(\n\tTYPE = HADOOP,\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salescustomer'\n)\n\nCREATE EXTERNAL DATA SOURCE EDS_salesInvoice WITH\n(\n\tTYPE = HADOOP,\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salesinvoice'\n)\n\nCREATE EXTERNAL DATA SOURCE EDS_salesOrders WITH\n(\n\tTYPE = HADOOP,\n\tLOCATION = 'https://nxtgenstagingdl.blob.core.windows.net/salesorders'\n)\n\nCREATE EXTERNAL FILE FORMAT coma_seperate_text_compression\nWITH\n(  \n    FORMAT_TYPE = DELIMITEDTEXT,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'\n)\n\nCREATE EXTERNAL FILE FORMAT coma_seperate_text\nWITH\n(  \n    FORMAT_TYPE = DELIMITEDTEXT\n    --DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'\n)\n\n--DROP EXTERNAL TABLE [Customers]\nCREATE EXTERNAL TABLE [Customers](\n\t[CustomerID] [int],\n\t[CustomerName] [nvarchar](100),\t\n\t[PhoneNumber] [nvarchar](20),\n\t[FaxNumber] [nvarchar](20),\t\n\t[WebsiteURL] [nvarchar](256),\n\t[DeliveryAddressLine1] [nvarchar](60),\n\t[DeliveryAddressLine2] [nvarchar](60),\n\t[DeliveryPostalCode] [nvarchar](10),\n\t[PostalAddressLine1] [nvarchar](60),\n\t[PostalAddressLine2] [nvarchar](60),\n\t[PostalPostalCode] [nvarchar](10)\n)\nWITH(\n\tLOCATION = '/',\n    DATA_SOURCE = EDS_salescustomer,\n    FILE_FORMAT = coma_seperate_text_compression\n)\n\nselect top 100 * from [Customers]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "NextGen_DedicatedSqlPool",
+				"databaseName": "NextGen_DedicatedSqlPool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
