@@ -1,0 +1,17 @@
+{
+	"name": "ExTbl_SalesCustomer",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'azsynapsefs_nxtgenstagingdl_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [azsynapsefs_nxtgenstagingdl_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION   = 'https://nxtgenstagingdl.dfs.core.windows.net/azsynapsefs', \n\t)\nGo\n\nCREATE EXTERNAL TABLE ExtSalesCustomer (\n\t[CustomerID] varchar(8000),\n\t[CustomerName] varchar(8000),\n\t[BillToCustomerID] varchar(8000),\n\t[CustomerCategoryID] varchar(8000),\n\t[BuyingGroupID] varchar(8000),\n\t[PrimaryContactPersonID] varchar(8000),\n\t[AlternateContactPersonID] varchar(8000),\n\t[DeliveryMethodID] varchar(8000),\n\t[DeliveryCityID] varchar(8000),\n\t[PostalCityID] varchar(8000),\n\t[CreditLimit] varchar(8000),\n\t[AccountOpenedDate] varchar(8000),\n\t[StandardDiscountPercentage] varchar(8000),\n\t[IsStatementSent] varchar(8000),\n\t[IsOnCreditHold] varchar(8000),\n\t[PaymentDays] varchar(8000),\n\t[PhoneNumber] varchar(8000),\n\t[FaxNumber] varchar(8000),\n\t[DeliveryRun] varchar(8000),\n\t[RunPosition] varchar(8000),\n\t[WebsiteURL] varchar(8000),\n\t[DeliveryAddressLine1] varchar(8000),\n\t[DeliveryAddressLine2] varchar(8000),\n\t[DeliveryPostalCode] varchar(8000),\n\t[DeliveryLocation] varchar(8000),\n\t[PostalAddressLine1] varchar(8000),\n\t[PostalAddressLine2] varchar(8000),\n\t[PostalPostalCode] varchar(8000),\n\t[LastEditedBy] varchar(8000),\n\t[ValidFrom] varchar(8000),\n\t[ValidTo] varchar(8000)\n\t)\n\tWITH (\n\tLOCATION = '/salescustomer.parquet',\n\tDATA_SOURCE = [azsynapsefs_nxtgenstagingdl_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\nSELECT TOP 100 * FROM ExtSalesCustomer\nGO\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"poolName": "Built-in",
+				"databaseName": "NextGenDW"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
