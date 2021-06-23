@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_hhe",
+				"name": "convert_csv_to_parquet",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
