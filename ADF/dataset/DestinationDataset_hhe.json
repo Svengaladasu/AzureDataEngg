@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_hhe",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "NxtGenADL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "azsynapsefs"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
