@@ -1,0 +1,6 @@
+{
+	"name": "Selfhosted-IR-NextGen",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
